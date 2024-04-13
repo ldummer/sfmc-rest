@@ -197,9 +197,12 @@
       // may be overridden as desired.
       payload.name = name;
   
-      payload["arguments"].execute.inArguments = [{ message: value },
+      payload["arguments"].execute.inArguments = [
+        { 
+            message: value 
+        },
         {
-            args: inArguments
+            args: inArguments.phoneNumber
         }];
   
       payload["metaData"].isConfigured = true;
