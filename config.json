@@ -31,16 +31,16 @@
     },
     "configurationArguments": {
       "save": {
-        "url": "URI/for/your/activity/save"
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       },
       "publish": {
-        "url": "URI/for/your/activity/publish"
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       },
       "validate": {
-        "url": "URI/for/your/activity/validate"
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       },
       "stop": {
-        "url": "URI/for/your/activity/stop"
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       }
     },
     "wizardSteps": [
