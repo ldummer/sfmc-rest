@@ -22,9 +22,12 @@
           }
         ],
         "outArguments": [
-          {
-            "foundSignupDate": ""
-          }
+            {
+            "emailAddress": "{{InteractionDefaults.Email}}"
+            },
+            {
+            "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+            }
         ],
         "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       }
