@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Atividade</title>
+    <title>Teste 2</title>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/postmonger.js"></script>
@@ -197,13 +197,7 @@
       // may be overridden as desired.
       payload.name = name;
   
-      payload["arguments"].execute.inArguments = [
-        { 
-            message: value 
-        },
-        {
-            args: inArguments.phoneNumber
-        }];
+      payload["arguments"].execute.inArguments = [{ message: value }];
   
       payload["metaData"].isConfigured = true;
   
