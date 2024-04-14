@@ -11,80 +11,11 @@
         "description": "Mande uma mensagem de WhatsApp para o contato que entrou nesta jornada"
       }
     },
-    "arguments": {
-      "execute": {
-        "inArguments": [
-          {
-            "emailAddress": "{{InteractionDefaults.Email}}"
-          },
-          {
-            "phoneNumber": "{{Contact.Default.PhoneNumber}}"
-          }
-        ],
-        "outArguments": [
-          {
-            "foundSignupDate": ""
-          }
-        ],
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      }
-    },
-    "configurationArguments": {
-      "save": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      },
-      "publish": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      },
-      "validate": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      },
-      "stop": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      }
-    },
-    "wizardSteps": [
-      { "label": "Step 1", "key": "step1" },
-      { "label": "Step 2", "key": "step2" },
-      { "label": "Step 3", "key": "step3" },
-      { "label": "Step 4", "key": "step4", "active": false }
-    ],
     "userInterfaces": {
       "configModal": {
         "height": 200,
         "width": 300,
         "fullscreen": true
-      }
-    },
-    "schema": {
-      "arguments": {
-        "execute": {
-          "inArguments": [
-            {
-              "phoneNumber": {
-                "dataType": "Phone",
-                "isNullable": false,
-                "direction": "in"
-              }
-            },
-            {
-              "emailAddress": {
-                "dataType": "Email",
-                "isNullable": false,
-                "direction": "in"
-              }
-            }
-          ],
-          "outArguments": [
-            {
-              "foundSignupDate": {
-                "dataType": "Date",
-                "direction": "out",
-                "access": "visible"
-              }
-            }
-          ]
-        }
       }
     }
   }
