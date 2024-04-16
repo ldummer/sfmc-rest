@@ -13,13 +13,21 @@
 var payload;
 var args = [];
 
+
 $(window).ready(onRender);
 
 connection.on('initActivity', initialize);
 connection.on('clickedNext', save);
 
+connection.on("clickedNext", onClickedNext);
+
 function onRender() {
   connection.trigger('ready');
+  // Disable the next button if a value isn't selected
+  
+  connection.trigger("requestTokens");
+  connection.trigger("requestEndpoints");
+  
 }
 
 function initialize(data) {
@@ -95,6 +103,6 @@ function onClickedNext() {
     </style>
   </head>
   <body>
-   <h1>Message 11</h1>
+    <h2>Teste</h2>
   </body>
 </html>
