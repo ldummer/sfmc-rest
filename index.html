@@ -39,14 +39,11 @@ function initialize(data) {
         var inArg = {};
         let attr = schema[i].key;
         let keyIndex = attr.lastIndexOf('.') + 1;
-        console.log(attr);
+        
         inArg[attr.substring(keyIndex)] = '{{' + attr + '}}';
-        args.push(inArg);
+        args.push(inArg);console.log(inArg);console.log(args);;
     }
   });
-  console.log(args)
-
-  let argArr = payload['arguments'].execute.inArguments = args;
 
   console.log(argArr);
 
@@ -63,6 +60,7 @@ function save() {
   payload['arguments'].execute.inArguments.push(keyObj);
 
   */
+  payload["arguments"].execute.inArguments = args;
 
   payload.metaData.isConfigured = true;
   connection.trigger('updateActivity', payload);
@@ -90,6 +88,6 @@ function onClickedNext() {
     </style>
   </head>
   <body>
-   <h1>Message 4</h1>
+   <h1>Message 6</h1>
   </body>
 </html>
