@@ -42,6 +42,27 @@
     connection.trigger("requestTokens");
     connection.trigger("requestEndpoints");
 
+    connection.on(
+      'requestedTriggerEventDefinition',
+      function (eventDefinitionModel) {
+        var eventKey = eventDefinitionModel['eventDefinitionKey'];
+        save(eventKey);
+      }
+    );
+
+    function save(eventKey) {
+      // subscriberKey fetched directly from Contact model
+      // columnName is populated from the Journey Data model
+      var params = {
+        subscriberKey: '{{Contact.key}}',
+        phone: '{{Event.' + eventKey + '.pone}}',
+      };
+      payload['arguments'].execute.inArguments = [params];
+      payload["metaData"].isConfigured = true;
+      
+      connection.trigger("updateActivity", payload);
+    }
+
     // Disable the next button if a value isn't selected
     $("#select1").change(function () {
       var message = getMessage();
@@ -74,38 +95,6 @@
         console.log(schema);
         console.log(data);
     });
-    var message;
-    var hasInArguments = Boolean(
-      payload["arguments"] &&
-        payload["arguments"].execute &&
-        payload["arguments"].execute.inArguments &&
-        payload["arguments"].execute.inArguments.length > 0
-    );
-
-    var inArguments = hasInArguments
-      ? payload["arguments"].execute.inArguments
-      : {};
-
-    $.each(inArguments, function (index, inArgument) {
-      $.each(inArgument, function (key, val) {
-        if (key === "message") {
-          message = val;
-        }
-      });
-    });
-
-    // If there is no message selected, disable the next button
-    if (!message) {
-      showStep(null, 1);
-      connection.trigger("updateButton", { button: "next", enabled: false });
-      // If there is a message, skip to the summary step
-    } else {
-      $("#select1")
-        .find("option[value=" + message + "]")
-        .attr("selected", "selected");
-      $("#message").html(message);
-      showStep(null, 3);
-    }
   }
 
 
@@ -188,26 +177,6 @@
     }
   }
 
-  function save() {
-    var name = $("#select1").find("option:selected").html();
-    var value = getMessage();
-
-    // 'payload' is initialized on 'initActivity' above.
-    // Journey Builder sends an initial payload with defaults
-    // set by this activity's config.json file.  Any property
-    // may be overridden as desired.
-    payload.name = name;
-
-    payload["arguments"].execute.inArguments = [{ message: value }];
-
-    payload["metaData"].isConfigured = true;
-
-    connection.trigger("updateActivity", payload);
-  }
-
-  function getMessage() {
-    return $("#select1").find("option:selected").attr("value").trim();
-  }
 });
     </script>
 
@@ -215,7 +184,7 @@
   body {
     padding: 20px;
     margin: 0;
-    background-color: azure;
+    background-color: rgb(243, 255, 240);
   }
   .step {
     display: none;

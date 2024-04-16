@@ -1,26 +1,18 @@
 {
   "workflowApiVersion": "1.1",
   "metaData": {
-    "icon": "images/sms.png",
+    "icon": "images/icon.png",
     "category": "message"
   },
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "REST Activity (Workflow API v1.1)",
-      "description": "An example REST activity using workflow API v1.1 format."
+      "name": "WPP",
+      "description": "TESTE"
     }
   },
   "arguments": {
     "execute": {
-      "inArguments": [
-        {
-          "emailAddress": "{{InteractionDefaults.email}}"
-        },
-        {
-          "phoneNumber": "{{Contact.Default.phone}}"
-        }
-      ],
       "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
     }
   },
@@ -40,28 +32,6 @@
       "height": 200,
       "width": 300,
       "fullscreen": true
-    }
-  },
-  "schema": {
-    "arguments": {
-      "execute": {
-        "inArguments": [
-          {
-            "phoneNumber": {
-              "dataType": "Phone",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-          {
-            "emailAddress": {
-              "dataType": "Email",
-              "isNullable": false,
-              "direction": "in"
-            }
-          }
-        ]
-      }
     }
   }
 }
