@@ -1,84 +1,34 @@
 {
-  "workflowApiVersion": "1.1",
-  "metaData": {
-    "icon": "images/sms.png",
-    "category": "message"
-  },
-  "type": "REST",
-  "lang": {
-    "en-US": {
-      "name": "REST Activity (Workflow API v1.1)",
-      "description": "An example REST activity using workflow API v1.1 format."
-    }
-  },
-  "arguments": {
-    "execute": {
-      "inArguments": [
-        {
-          "emailAddress": "{{InteractionDefaults.Email}}"
-        },
-        {
-          "phoneNumber": "{{Contact.Default.PhoneNumber}}"
-        }
-      ],
-      "outArguments": [
-        {
-          "foundSignupDate": ""
-        }
-      ],
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-    }
-  },
-  "configurationArguments": {
-    "save": {
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+    "workflowApiVersion": "1.1",
+    "metaData": {
+      "icon": "images/icon.png",
+      "category": "message"
     },
-    "publish": {
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+    "type": "REST",
+    "lang": {
+      "en-US": {
+        "name": "WhatsApp Message",
+        "description": "Mande uma mensagem de WhatsApp para o contato que entrou nesta jornada"
+      }
     },
-    "validate": {
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-    },
-    "stop": {
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-    }
-  },
-  "userInterfaces": {
-    "configModal": {
-      "height": 200,
-      "width": 300,
-      "fullscreen": true
-    }
-  },
-  "schema": {
     "arguments": {
       "execute": {
         "inArguments": [
-          {
-            "phoneNumber": {
-              "dataType": "Phone",
-              "isNullable": false,
-              "direction": "in"
-            }
-          },
-          {
-            "emailAddress": {
-              "dataType": "Email",
-              "isNullable": false,
-              "direction": "in"
-            }
-          }
         ],
-        "outArguments": [
-          {
-            "foundSignupDate": {
-              "dataType": "Date",
-              "direction": "out",
-              "access": "visible"
-            }
-          }
-        ]
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       }
-    }
+    },
+    "configurationArguments": {
+      "publish": {
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+      }
+    },
+    "userInterfaces": {
+      "configModal": {
+        "height": 200,
+        "width": 300,
+        "fullscreen": true
+      }
+    },
+    "editable":true
   }
-}
