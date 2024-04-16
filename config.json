@@ -1,31 +1,40 @@
 {
-  "workflowApiVersion": "1.1",
-  "metaData": {
-    "icon": "images/icon.png",
-    "category": "message"
-  },
-  "type": "REST",
-  "lang": {
-    "en-US": {
-      "name": "WPP",
-      "description": "TESTE"
-    }
-  },
-  "arguments": {
-    "execute": {
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-    }
-  },
-  "configurationArguments": {
-    "publish": {
-      "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-    }
-  },
-  "userInterfaces": {
-    "configModal": {
-      "height": 200,
-      "width": 300,
-      "fullscreen": true
+    "workflowApiVersion": "1.1",
+    "metaData": {
+      "icon": "images/icon.png",
+      "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+      "en-US": {
+        "name": "WhatsApp Message",
+        "description": "Mande uma mensagem de WhatsApp para o contato que entrou nesta jornada"
+      }
+    },
+    "arguments": {
+      "execute": {
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+      }
+    },
+    "configurationArguments": {
+      "save": {
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+      },
+      "publish": {
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+      },
+      "validate": {
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+      },
+      "stop": {
+        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
+      }
+    },
+    "userInterfaces": {
+      "configModal": {
+        "height": 200,
+        "width": 300,
+        "fullscreen": true
+      }
     }
   }
-}
