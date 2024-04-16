@@ -3,7 +3,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Teste 4</title>
+    <title>test 6</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/postmonger.js"></script>
@@ -197,11 +198,7 @@
       // may be overridden as desired.
       payload.name = name;
   
-      payload["arguments"].execute.inArguments = [
-        { message: value },
-        {"Name": "{{Contact.Attribute.teste_td.name}}"},
-        {"Email": "{{Contact.Attribute.teste_td.email}}"},
-        {"Phone": "{{Contact.Attribute.teste_td.phone}}"}];
+      payload["arguments"].execute.inArguments.push({ message: value });
   
       payload["metaData"].isConfigured = true;
   
@@ -230,7 +227,7 @@
   </head>
   <body>
     <div id="step1" class="step">
-      SMS 4 message:
+      SMS message:
       <select id="select1">
         <option value="">Select an option</option>
         <option value="someMessage">Some SMS</option>
