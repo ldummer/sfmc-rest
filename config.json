@@ -15,12 +15,12 @@
       "execute": {
         "inArguments": [
         ],
-        "url": "https://webhook.site/3897d61c-c42a-45c6-a8e6-cab8f4540af3"
+        "url": "https://requestbin.myworkato.com/12v2syx1"
       }
     },
     "configurationArguments": {
       "publish": {
-        "url": "https://webhook.site/3897d61c-c42a-45c6-a8e6-cab8f4540af3"
+        "url": "https://requestbin.myworkato.com/12v2syx1"
       }
     },
     "userInterfaces": {
