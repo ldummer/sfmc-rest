@@ -11,6 +11,7 @@
     <script type="text/javascript">
    var connection = new Postmonger.Session();
 var payload = {};
+var args = [];
 
 $(window).ready(onRender);
 
@@ -40,11 +41,12 @@ function initialize(data) {
         let keyIndex = attr.lastIndexOf('.') + 1;
         console.log(attr);
         inArg[attr.substring(keyIndex)] = '{{' + attr + '}}';
-        payload['arguments'].execute.inArguments.push(inArg);
+        args.push(inArg);
     }
   });
+  console.log(args)
 
-  let argArr = payload['arguments'].execute.inArguments;
+  let argArr = payload['arguments'].execute.inArguments = args;
 
   console.log(argArr);
 
@@ -88,6 +90,6 @@ function onClickedNext() {
     </style>
   </head>
   <body>
-   <h1>Message 3</h1>
+   <h1>Message 4</h1>
   </body>
 </html>
