@@ -10,7 +10,7 @@
     <script type="text/javascript" src="js/require.js" data-main="customActivity"></script>
     <script type="text/javascript">
    var connection = new Postmonger.Session();
-var payload = {};
+var payload;
 var args = [];
 
 $(window).ready(onRender);
@@ -45,7 +45,7 @@ function initialize(data) {
     }
   });
 
-  console.log(argArr);
+  
 
 }
 
@@ -60,7 +60,9 @@ function save() {
   payload['arguments'].execute.inArguments.push(keyObj);
 
   */
-  payload["arguments"].execute.inArguments = args;
+  payload["arguments"].execute.inArguments = JSON.parse(args);
+
+  console.log(payload["arguments"].execute.inArguments);
 
   payload.metaData.isConfigured = true;
   connection.trigger('updateActivity', payload);
@@ -88,6 +90,6 @@ function onClickedNext() {
     </style>
   </head>
   <body>
-   <h1>Message 6</h1>
+   <h1>Message 7</h1>
   </body>
 </html>
