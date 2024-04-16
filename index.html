@@ -1,86 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>test 6</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/postmonger.js"></script>
-    <script type="text/javascript" src="js/require.js" data-main="customActivity"></script>
-    <script type="text/javascript">
+<head>
+  <meta charset="utf-8" />
+  <title>test 10</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/postmonger.js"></script>
+  <script type="text/javascript" src="js/require.js" data-main="customActivity"></script>
+  <script type="text/javascript">
     var connection = new Postmonger.Session();
     var payload = {};
 
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
-    connection.on('clickedNext', onClickedNext);
+    connection.on('clickedNext', save);
 
     function onRender() {
-
-        connection.trigger('ready');
-
-        $('#select1').change(function() {
-            var name = $('#select1').find('option:selected').html();
-            console.log('PNR Field selected : ', name);
-        });
+      connection.trigger('ready');
     }
 
     function initialize(data) {
-        $('#step1').show();
-        if (data) {
-            payload = data;
+      if (data) {
+        payload = data;
+      }
+
+      connection.trigger('requestSchema');
+      connection.on('requestedSchema', function (data) {
+        const schema = data['schema'];
+
+        for (var i = 0, l = schema.length; i < l; i++) {
+          var inArg = {};
+          let attr = schema[i].key;
+          let keyIndex = attr.lastIndexOf('.') + 1;
+          inArg[attr.substring(keyIndex)] = '{{' + attr + '}}';
+          payload['arguments'].execute.inArguments.push(inArg);
+          
+          // Adiciona o valor do inArgument a um elemento HTML
+          $('#inArgsList').append('<li>' + JSON.stringify(inArg) + '</li>');
         }
+      });
 
-        connection.trigger('requestSchema');
-        connection.on('requestedSchema', function(data) {
-            const schema = data['schema'];
-
-            for (var i = 0, l = schema.length; i < l; i++) {
-                let attr = schema[i].key;
-
-                // populate select dropdown 
-                let option = $('<option></option>')
-                    .attr('id', schema[i].key)
-                    .text(schema[i].name);
-
-                $('#idField').append(option);
-
-            }
-        });
+      let argArr = payload['arguments'].execute.inArguments;
     }
 
-    function onClickedNext() {
-        var idField = $('#idField').find('option:selected').html();
-        payload['arguments'].execute.inArguments.push({
-            idField: idField
-        })
-        payload['metaData'].isConfigured = true;
-        connection.trigger('updateActivity', payload);
+    function save() {
+      payload.metaData.isConfigured = true;
+      connection.trigger('updateActivity', payload);
     }
-    </script>
+  </script>
 
-    <!--Styles-->
-    <style type="text/css">
-      body {
-        padding: 20px;
-        margin: 0;
-        background-color: azure;
-      }
-      .step {
-        display: none;
-      }
-      #step1 {
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="step1" class="step">
-      Select fields:
-      <select class="slds-select" id="idField"></select>
-
-  </body>
+  <!--Styles-->
+  <style type="text/css">
+    body {
+      padding: 20px;
+      margin: 0;
+      background-color: rgb(138, 164, 164);
+    }
+    .step {
+      display: none;
+    }
+    #step1 {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="step1" class="step">
+    <h2>Valores dos InArguments:</h2>
+    <ul id="inArgsList"></ul>
+  </div>
+</body>
 </html>
