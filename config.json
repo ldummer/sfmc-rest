@@ -14,27 +14,12 @@
     "arguments": {
       "execute": {
         "inArguments": [
-          {
-            "emailAddress": "{{InteractionDefaults.Email}}"
-          },
-          {
-            "phoneNumber": "{{Contact.Default.PhoneNumber}}"
-          }
         ],
         "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       }
     },
     "configurationArguments": {
-      "save": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      },
       "publish": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      },
-      "validate": {
-        "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
-      },
-      "stop": {
         "url": "https://webhook.site/966ae2ef-4c39-45a5-a6f8-c51c49beba81"
       }
     },
@@ -44,5 +29,10 @@
         "width": 300,
         "fullscreen": true
       }
-    }
+    },
+    "outcomes": [{
+      "next": "WAITBYDURATION-1"
+    }],
+    "editable":true,
+    "errors": []
   }
