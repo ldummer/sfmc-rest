@@ -15,12 +15,12 @@
       "execute": {
         "inArguments": [
         ],
-        "url": "https://requestbin.myworkato.com/12v2syx1"
+        "url": "https://msg-costao.free.beeceptor.com"
       }
     },
     "configurationArguments": {
       "publish": {
-        "url": "https://requestbin.myworkato.com/12v2syx1"
+        "url": "https://msg-costao.free.beeceptor.com"
       }
     },
     "userInterfaces": {

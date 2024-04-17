@@ -3,15 +3,22 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>test 6</title>
+    <title>Whatsapp Messages</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script src="js/jquery.min.js"></script>
     <script src="js/postmonger.js"></script>
     <script type="text/javascript" src="js/require.js" data-main="customActivity"></script>
     <script type="text/javascript">
-   var connection = new Postmonger.Session();
+var connection = new Postmonger.Session();
 var payload;
 var args = [];
+// var args =[
+// {name: '{{Event.DEAudience-475ac52a-1405-47ca-a454-5995adf9304f.name}}'},
+// {email: '{{Event.DEAudience-475ac52a-1405-47ca-a454-5995adf9304f.email}}'},
+// {phone: '{{Event.DEAudience-475ac52a-1405-47ca-a454-5995adf9304f.phone}}'}
+// ];
 
 
 $(window).ready(onRender);
@@ -51,9 +58,9 @@ function initialize(data) {
         inArg[attr.substring(keyIndex)] = '{{' + attr + '}}';
         args.push(inArg);console.log(inArg);console.log(args);;
     }
+
   });
 
-  
 
 }
 
@@ -74,7 +81,6 @@ function save() {
 
   payload.metaData.isConfigured = true;
   connection.trigger('updateActivity', payload);
-
 }
 
 function onClickedNext() {
@@ -86,23 +92,292 @@ function onClickedNext() {
   connection.trigger('updateActivity', payload);
 
 }
+///////////////////////////
+var response = {
+    "contents": [
+        {
+            "date_created": "2024-04-03T19:40:50Z",
+            "date_updated": "2024-04-03T19:40:50Z",
+            "friendly_name": "avaliacaofase2_en",
+            "language": "en",
+            "types": {
+                "twilio/text": {
+                    "body": "DEAR {{1}},\n\nWe've noticed that you haven't completed the Satisfaction Survey yet. Do you have 5 minutes?\n\nWe want to hear from you and understand your impressions about your stay! Please, tell us how your stay was and help us make the Costao experience even better!\n\nTo do this, just click on the link below:\nhttps://avaliacao.costao.com.br/ficha_avaliacao.php?ficha={{2}}"
+                }
+            }
+        },
+        {
+            "date_created": "2024-04-03T17:57:31Z",
+            "date_updated": "2024-04-03T17:57:31Z",
+            "friendly_name": "avaliacaofase2",
+            "language": "pt_BR",
+            "types": {
+                "twilio/text": {
+                    "body": "PREZADO(A) {{1}},\n\nIdentificamos que você ainda não realizou a Pesquisa de Satisfação, você tem 5 minutinhos?  \n\nQueremos ouvi-lo e perceber suas impressões sobre a sua estadia! Nos conte como foi a sua estadia e nos ajude a tornar a experiência Costão ainda melhor! \n\nPara isso, é só clicar no link abaixo:\nhttps://avaliacao.costao.com.br/ficha_avaliacao.php?ficha={{2}}"
+                }
+            }
+        },
+        {
+            "date_created": "2024-04-02T13:03:57Z",
+            "date_updated": "2024-04-02T13:03:57Z",
+            "friendly_name": "webcheckinfase2_esp",
+            "language": "es",
+            "types": {
+                "twilio/text": {
+                    "body": "Estimado(a) {{1}},\n\nHemos identificado que aún no has completado tu Web Check-in, ¿tienes 5 minutos?\n\n¡Al proporcionar sus datos de registro ahora, agilizas su proceso de check-in!\n\n¡No lo dejes para último momento, realiza tu web check-in y haz tu llegada más fácil!\n\nPara hacer esto, simplemente haga clic en el siguiente enlace:\nhttps://webcheckin.costao.com.br/ficha_avaliacao.php?ficha={{2}}\n\nEste es tu Nº de Reserva: {{3}}\n\n¡Te estamos esperando! Consulta nuestra ubicación aquí.\nhttps://bit.ly/mapa-costao\n\nCordiales saludos!\n\nhttps://www.costao.com.br/"
+                }
+            }
+        },
+        {
+            "date_created": "2024-04-02T12:05:20Z",
+            "date_updated": "2024-04-02T12:05:20Z",
+            "friendly_name": "webcheckinfase2_en",
+            "language": "en",
+            "types": {
+                "twilio/text": {
+                    "body": "Dear {{1}},\n\nWe have identified that you have not yet completed your Web Check-in, do you have 5 minutes?\n\nBy providing your registration details now, you speed up your check-in process!\n\nDon't leave it until the last minute, carry out your web check-in and make your arrival easier!\n\nTo do this, just click on the link below:\nhttps://webcheckin.costao.com.br/ficha_avaliacao.php?ficha={{2}}\n\nThis is your Reservation Number: {{3}}\n\nWe are waiting for you! Check out our location here.\nhttps://bit.ly/mapa-costao\n\nWarm regards from the Costão team!\n\nhttps://www.costao.com.br/"
+                }
+            }
+        },
+        {
+            "date_created": "2024-04-01T18:14:24Z",
+            "date_updated": "2024-04-01T18:14:24Z",
+            "friendly_name": "webcheckinfase2",
+            "language": "pt_BR",
+            "types": {
+                "twilio/text": {
+                    "body": "Prezado(a) {{1}}, \n\nIdentificamos que você ainda não realizou o seu Web Check-in, você tem 5 minutinhos?  \n\nAo fornecer seus dados cadastrais agora, você agiliza seu processo de check-in na Recepção! \n\nNão deixe para a última hora, realize o seu web check-in e facilite sua chegada! \n\nPara isso, é só clicar no link abaixo: \nhttps://webcheckin.costao.com.br/ficha_avaliacao.php?ficha={{2}}\n\nEsse é Nº da sua Reserva: {{3}}\n\nEstamos te esperando! Confira aqui nossa localização. \nhttps://bit.ly/mapa-costao\n\nUm grande abraço da equipe Costão! \n\nhttps://www.costao.com.br/"
+                }
+            }    
+        }
+    ],
+    "meta": {
+        "first_page_url": "https://content.twilio.com/v1/Content?PageSize=50&Page=0",
+        "key": "contents",
+        "next_page_url": null,
+        "page": 0,
+        "page_size": 50,
+        "previous_page_url": null,
+        "url": "https://content.twilio.com/v1/Content?PageSize=50&Page=0"
+    }
+};
+document.addEventListener('DOMContentLoaded', function() {
+    // Extract message options
+    var replacedBody;
+    var messageOptions = response.contents.map(function(content) {
+        return {
+            friendly_name: content.friendly_name,
+            body: content.types['twilio/text'].body
+        };
+    });
+
+    // Create and populate dropdown
+    var dropdown = document.createElement('select');
+    dropdown.id = 'messageDropdown';
+    optionElement = document.createElement('option');
+        optionElement.value = 'x';
+        optionElement.textContent = 'selecione';
+        dropdown.appendChild(optionElement);
+
+    messageOptions.forEach(function(option, index) {
+        var optionElement = document.createElement('option');
+        optionElement.value = index;
+        optionElement.textContent = option.friendly_name;
+        dropdown.appendChild(optionElement);
+    });
+    var selectedMessage = null
+    
+    var selectedIndex = null
+    // Add event listener to dropdown
+    dropdown.addEventListener('change', function() {
+        selectedIndex = dropdown.value;
+        selectedMessage = messageOptions[selectedIndex].body;
+
+        // Replace macros with dropdowns
+        var replacedMessage = replaceMacrosWithDropdowns(selectedMessage);
+
+        // Display selected message on the screen
+        document.getElementById('texto').innerHTML = replacedMessage;
+        document.getElementById('rendered').textContent = null;
+        document.getElementById('rendered').classList.remove('alert-success')
+        document.getElementById('rendered').classList.remove('alert-danger')
+        var replacedBody = null;
+        args = args.filter(function(obj) {
+            return !obj.hasOwnProperty("body");
+        });
+
+        // Add event listener to render button
+        document.getElementById('renderBtn').addEventListener('click', function() {
+            var allDropdowns = document.getElementsByClassName('macro-dropdown');
+
+            // Highlight dropdowns with "select-value" option
+            for (var i = 0; i < allDropdowns.length; i++) {
+                var currentDropdown = allDropdowns[i];
+                if (currentDropdown.value == 'select-value') {
+                    currentDropdown.classList.remove('ok-background');
+                    currentDropdown.classList.add('select-background');
+                } else {
+                    currentDropdown.classList.remove('select-background');
+                    currentDropdown.classList.add('ok-background');
+                }
+            }
+
+            // Check if any dropdown has a value of "select-value"
+            var hasSelectValue = false;
+            for (var i = 0; i < allDropdowns.length; i++) {
+                var dropdown = allDropdowns[i];
+                if (dropdown.value === 'select-value') {
+                    hasSelectValue = true;
+                    break;
+                }
+            }
+
+            // Determine replacedBody based on dropdown values
+            if (hasSelectValue) {
+                replacedBody = null;
+                document.getElementById('rendered').textContent = "ERRO : Selecione todas as macros disponíveis no template";
+                document.getElementById('rendered').classList.remove('alert-success')
+                document.getElementById('rendered').classList.add('alert-danger')
+            } else {
+                args = args.filter(function(obj) {
+                    return !obj.hasOwnProperty("body");
+                });
+                replacedBody = renderMessage(selectedMessage);
+                document.getElementById('rendered').textContent = "SUCESSO:\n" + replacedBody;
+                document.getElementById('rendered').classList.remove('alert-danger')
+                document.getElementById('rendered').classList.add('alert-success')
+                args.push({body:replacedBody});
+                console.log(args)
+            }
+        });
+    });
+
+    // Append dropdown to the document
+    document.getElementById('staticDropdown').appendChild(dropdown);
+
+    function replaceMacrosWithDropdowns(message) {
+        // Extract macros and create dropdowns
+        var regex = /{{(\d+)}}/g;
+        var replacedMessage = message.replace(regex, function(match, placeholder) {
+            var dropdown = '<select id="macro-dropdown-' + placeholder + '" class="macro-dropdown" data-placeholder="' + placeholder + '">';
+            dropdown += '<option value="select-value">select</option>';
+            args.map(function(content) {
+                var obj = Object.keys(content)[0];
+                var val = Object.values(content)[0];
+                if (obj === 'body'){
+                  return null
+                } else {
+                  return dropdown += '<option value="' + val + '">' + obj + '</option>';
+                }
+            });
+            dropdown += '</select>';
+            return dropdown;
+        });
+        return replacedMessage;
+    }
+
+    function renderMessage(message) {
+        // Render the message by replacing macros with selected values
+        var regexRender = /{{(\d+)}}/g;
+        var macros = document.getElementsByClassName('macro-dropdown')
+        var replacedBoby = message.replace(regexRender, function(match, placeholder) {
+            var textOpt = macros[placeholder - 1].value;
+            return textOpt;
+        });
+        macros = null
+        return replacedBoby;
+    }
+});
     </script>
 
     <!--Styles-->
     <style type="text/css">
       body {
-        padding: 20px;
-        margin: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 15px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+      #texto {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
       }
-      .step {
-        display: none;
+      .macro-dropdown{
+        font-size: 14px;
+        border-radius: 10px;
+        color: #FFFF;
+        background-color: #4195D1;
       }
-      #step1 {
-        display: block;
+      .select-background{
+        background-color: rgb(128, 6, 6)!important;
+      }
+      .ok-background{
+        background-color: green!important;
+      }
+      #header{
+        font-size: 24px;
+      }
+      .btnWrapper{
+        display: flex;
+        justify-content: space-around;
+      }
+      #renderBtn{
+        min-width: 250px;
       }
     </style>
   </head>
-  <body>
-    <h2>Teste5</h2> 
-  </body>
+  <body class="container-fluid">
+    <header id="header">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+
+          <img src="images/logo.png" width="150"></img>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class=" align-center bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+          </svg>
+        </a>
+      </nav>
+    </header>
+      <form>
+        <div class="form-group row">
+          <label for="staticDropdown" class="col-sm-1 col-form-label">Template</label>
+          <div class="col-sm-10">
+            <div type="text" readonly class="form-control-plaintext" id="staticDropdown">
+
+            </div>
+          </div>
+        </div>
+      </form>
+        <div id="texto" class="message"></div>
+        <div class="btnWrapper container-fluid">
+        <button id="renderBtn">Validar</button>
+        </div>
+        <div id="rendered" class="alert" role="alert"></div>
+    </div>
+</body>
 </html>
