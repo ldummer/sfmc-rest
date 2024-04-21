@@ -75,6 +75,11 @@ function save() {
   payload['arguments'].execute.inArguments.push(keyObj);
 
   */
+
+  var name = $("#select1").find("option:selected").html();
+
+  payload.name = name;
+  
   payload["arguments"].execute.inArguments = args;
 
   console.log(JSON.stringify(payload));
@@ -84,6 +89,12 @@ function save() {
 }
 
 function onClickedNext() {
+
+
+  var name = $("#select1").find("option:selected").html();
+
+  payload.name = name;
+
   payload["arguments"].execute.inArguments = args;
 
   console.log(JSON.stringify(payload));

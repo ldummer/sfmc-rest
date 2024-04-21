@@ -15,12 +15,12 @@
       "execute": {
         "inArguments": [
         ],
-        "url": "https://msg-costao.free.beeceptor.com"
+        "url": "https://webhook.site/8a683958-3f36-4823-8d32-a874d5f86bb8"
       }
     },
     "configurationArguments": {
       "publish": {
-        "url": "https://msg-costao.free.beeceptor.com"
+        "url": "https://webhook.site/8a683958-3f36-4823-8d32-a874d5f86bb8"
       }
     },
     "userInterfaces": {
